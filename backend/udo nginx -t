@@ -1,0 +1,19 @@
+[0;1;32m●[0m routing_transport.service - Routing Transport Spring Boot
+     Loaded: loaded (/etc/systemd/system/routing_transport.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-07-14 15:03:42 CEST; 1s ago
+   Main PID: 49495 (java)
+      Tasks: 22 (limit: 9455)
+     Memory: 159.5M
+     CGroup: /system.slice/routing_transport.service
+             └─49495 /usr/bin/java -jar /opt/routing_transport/app.jar --server.servlet.context-path=/routing_transport/api
+
+Jul 14 15:03:42 vmi2702300.contaboserver.net systemd[1]: Started Routing Transport Spring Boot.
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]:   .   ____          _            __ _ _
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]:  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]: ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]:  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]:   '  |____| .__|_| |_|_| |_\__, | / / / /
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]:  =========|_|==============|___/=/_/_/_/
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]:  :: Spring Boot ::                (v3.5.3)
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]: 2025-07-14T15:03:43.318+02:00  INFO 49495 --- [routing_transport] [           main] c.i.t.TransportroutingApplication        : Starting TransportroutingApplication v0.0.1-SNAPSHOT using Java 17.0.15 with PID 49495 (/opt/routing_transport/app.jar started by root in /)
+Jul 14 15:03:43 vmi2702300.contaboserver.net java[49495]: 2025-07-14T15:03:43.321+02:00  INFO 49495 --- [routing_transport] [           main] c.i.t.TransportroutingApplication        : The following 1 profile is active: "prod"

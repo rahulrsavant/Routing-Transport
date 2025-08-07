@@ -1,0 +1,16 @@
+[Unit]
+Description=Routing Transport Spring Boot
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/routing_transport
+ExecStart=/usr/bin/java -jar /opt/routing_transport/app.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

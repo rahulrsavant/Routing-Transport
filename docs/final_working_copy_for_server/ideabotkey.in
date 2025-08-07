@@ -1,0 +1,30 @@
+server {
+    listen 80;
+    server_name ideabotkey.in www.ideabotkey.in;
+
+    # Built Vue files copied under /var/www/ideabotkey/routing_transport/
+    root /var/www/ideabotkey;
+    index index.html;
+
+    # Redirect / to the application subdirectory
+    location = / {
+        return 301 /routing_transport/;
+    }
+
+    # Proxy API requests to the Spring Boot backend
+    location ^~ /routing_transport/api/ {
+        proxy_pass http://localhost:8932;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Serve the frontend and enable history mode routing
+    location /routing_transport/ {
+        root /var/www/ideabotkey;
+        try_files $uri $uri/ /routing_transport/index.html;
+    }
+}
+

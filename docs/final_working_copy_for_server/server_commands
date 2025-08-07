@@ -1,0 +1,134 @@
+
+===== LOGS   =======
+
+
+✅ 1. Live log (latest, real-time updates)
+
+sudo journalctl -u routing_transport -f
+
+✅ 2. Full log from the beginning
+
+sudo journalctl -u routing_transport
+
+✅ 3. Log from today
+
+sudo journalctl -u routing_transport --since today
+
+✅ 4. Log from last 2 hours
+
+sudo journalctl -u routing_transport --since "2 hours ago"
+
+✅ 5. Log with timestamps and errors only
+
+sudo journalctl -u routing_transport --priority=err
+
+✅ 6. Export log to a file
+
+sudo journalctl -u routing_transport > backend-log.txt
+
+✅ 7. Last mentioned Lines
+
+sudo journalctl -u routing_transport -n 1000 -f
+
+
+
+
+
+
+
+=====    SYSTEMCTL ========
+
+
+
+✅ 1. Start the service (after boot or manual restart):
+
+sudo systemctl start routing_transport
+
+✅ 2. Stop the service (if you want to shut it down):
+
+sudo systemctl stop routing_transport
+
+✅ 3. Restart the service (after code/config update):
+
+sudo systemctl restart routing_transport
+
+✅ 4. Check current status (health, errors, etc.):
+
+sudo systemctl status routing_transport
+
+✅ 5. Enable service to auto-start on boot (one-time setup):
+
+sudo systemctl enable routing_transport
+
+✅ 6. Disable auto-start on boot (if needed):
+
+sudo systemctl disable routing_transport
+
+✅ 7. Reload systemd after service file changes (rare):
+
+sudo systemctl daemon-reload
+
+
+
+
+========  NGINX  =================
+
+✅ 1. Start Nginx
+
+sudo systemctl start nginx
+.
+
+✅ 2. Stop Nginx
+
+sudo systemctl stop nginx
+
+
+✅ 3. Restart Nginx
+
+sudo systemctl restart nginx
+
+Restarts Nginx. Use this after:
+You update your /etc/nginx/sites-available/ or /etc/nginx/nginx.conf
+You make changes to domain mappings or static file paths
+
+✅ 4. Reload Nginx (without full restart)
+
+sudo systemctl reload nginx
+
+Reloads config without killing connections. Use this after minor config changes.
+
+✅ 5. Check Nginx Status
+
+sudo systemctl status nginx
+See whether Nginx is active and running.
+
+✅ 6. Enable Nginx to Start on Boot
+
+sudo systemctl enable nginx
+
+✅ 7. Disable Nginx from Starting on Boot
+
+sudo systemctl disable nginx
+
+✅ 8. Test Nginx Configuration (before reload/restart)
+
+sudo nginx -t
+Useful after editing /etc/nginx/sites-available/routing_transport.
+
+✅ 9. View Nginx Logs
+
+# Access logs (frontend requests like HTML, JS, CSS, images, etc.)
+sudo tail -f /var/log/nginx/access.log
+
+# Error logs (404, 502, config errors, etc.)
+sudo tail -f /var/log/nginx/error.log
+
+#both logs
+sudo tail -f /var/log/nginx/access.log /var/log/nginx/error.log
+
+
+
+
+
+
+

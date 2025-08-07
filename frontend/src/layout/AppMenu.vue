@@ -24,6 +24,11 @@ const model = ref([
                 label: 'vehiclemap',
                 icon: 'pi pi-fw pi-circle-off',
                 to: '/pages/vehiclemap'
+             },
+            {
+                label: 'tripmap',
+                icon: 'pi pi-fw pi-circle-off',
+                to: '/pages/tripmap'
             },
             {
                 label: 'stepperdemo',
@@ -117,7 +122,7 @@ const model = ref([
                 to: '/pages/crud'
             },
             {
-                label: 'Not Found',
+                label: 'Not Found it',
                 icon: 'pi pi-fw pi-exclamation-circle',
                 to: '/pages/notfound'
             },

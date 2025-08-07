@@ -32,7 +32,7 @@ public class SeatSeeder implements CommandLineRunner {
         }
 
         List<Vehicle> vehicles = vehicleRepository.findAll();
-        if (vehicles.isEmpty()) {
+        if (vehicles == null || vehicles.isEmpty()) {
             System.out.println("⚠️ Cannot seed Seats: No Vehicles found.");
             return;
         }

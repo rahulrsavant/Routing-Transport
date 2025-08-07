@@ -26,8 +26,8 @@ public class VehicleSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (vehicleRepository.count() == 0) {
             List<VehicleOwner> owners = vehicleOwnerRepository.findAll();
-            if (owners.isEmpty()) {
-                System.out.println("⚠️ Cannot seed Vehicles: no VehicleOwners found.");
+            if (owners == null || owners.size() < 10) {
+                System.out.println("⚠️ Cannot seed Vehicles: insufficient VehicleOwners found.");
                 return;
             }
 

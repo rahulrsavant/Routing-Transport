@@ -57,38 +57,48 @@ public class DatabaseSeeder implements CommandLineRunner {
         this.bookingSeeder = bookingSeeder;
     }
 
-@Override
-public void run(String... args) throws Exception {
-    System.out.println("🔵 Starting master DatabaseSeeder...");
+    @Override
+    public void run(String... args) {
+        System.out.println("🔵 Starting master DatabaseSeeder...");
 
-    // Foundational first
-    companySeeder.run();
-    vehicleOwnerSeeder.run();
-    vehicleSeeder.run(); // Needed for drivers
-    contractSeeder.run(); // Needed for routes
+        // Foundational first
+        runSeeder(companySeeder);
+        runSeeder(vehicleOwnerSeeder);
+        runSeeder(vehicleSeeder); // Needed for drivers
+        runSeeder(contractSeeder); // Needed for routes
 
-    // Now seed routes, drivers, seats
-    routeSeeder.run();    // Needs contracts
-    driverSeeder.run();   // Needs vehicles
-    seatSeeder.run();     // Needs vehicles
+        // Now seed routes, drivers, seats
+        runSeeder(routeSeeder); // Needs contracts
+        runSeeder(driverSeeder); // Needs vehicles
+        runSeeder(seatSeeder); // Needs vehicles
 
-    // Employees and permissions
-    employeeSeeder.run();
-    permissionSeeder.run();
-    roleSeeder.run();
+        // Employees and permissions
+        runSeeder(employeeSeeder);
+        runSeeder(permissionSeeder);
+        runSeeder(roleSeeder);
 
-    // Users (needs roles)
-    userSeeder.run();
+        // Users (needs roles)
+        runSeeder(userSeeder);
 
-    // Trips depend on drivers/routes/vehicles
-    tripSeeder.run();
-    tripEmployeeSeeder.run();
+        // Trips depend on drivers/routes/vehicles
+        runSeeder(tripSeeder);
+        runSeeder(tripEmployeeSeeder);
 
-    // Bookings depend on trips and seats
-    bookingSeeder.run();
+        // Bookings depend on trips and seats
+        runSeeder(bookingSeeder);
 
-    System.out.println("✅ All seeders completed successfully!");
+        System.out.println("✅ All seeders completed successfully!");
+    }
+
+    private void runSeeder(CommandLineRunner seeder) {
+        try {
+            seeder.run();
+        } catch (Exception e) {
+            System.out.println(
+                    "❌ " + seeder.getClass().getSimpleName() + " failed: " + e.getMessage());
+        }
+    }
+
+
 }
 
-
-}

@@ -27,7 +27,7 @@ public class RouteSeeder implements CommandLineRunner {
         public void run(String... args) throws Exception {
                 if (routeRepository.count() == 0) {
                         List<Contract> contracts = contractRepository.findAll();
-                        if (contracts.isEmpty()) {
+                        if (contracts == null || contracts.isEmpty()) {
                                 System.out.println("⚠️ Cannot seed Routes: no Contracts found.");
                                 return;
                         }

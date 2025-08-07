@@ -17,10 +17,21 @@ import lombok.Setter;
 @Table(name = "contracts")
 public class Contract {
 
-    public Contract(Company company2, VehicleOwner vehicleOwner, Vehicle vehicle2, String string, LocalDate now,
-            LocalDate plusYears, BigDecimal valueOf, String string2, LocalDateTime now2, LocalDateTime now3) {
-        //TODO Auto-generated constructor stub
+    public Contract(Company company, VehicleOwner owner, Vehicle vehicle,
+            String contractType, LocalDate startDate, LocalDate endDate,
+            BigDecimal amount, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.company = company;
+        this.owner = owner;
+        this.vehicle = vehicle;
+        this.contractType = contractType;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.amount = amount;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -26,7 +26,7 @@ public class DriverSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (driverRepository.count() == 0) {
             List<Vehicle> vehicles = vehicleRepository.findAll();
-            if (vehicles.isEmpty()) {
+            if (vehicles == null || vehicles.isEmpty()) {
                 System.out.println("⚠️ Cannot seed Drivers: no Vehicles found.");
                 return;
             }

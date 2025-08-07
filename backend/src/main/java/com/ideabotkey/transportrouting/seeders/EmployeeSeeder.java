@@ -29,6 +29,10 @@ public class EmployeeSeeder implements CommandLineRunner {
                 }
 
                 List<Company> companies = companyRepository.findAll();
+                if (companies == null || companies.size() < 10) {
+                        System.out.println("⚠️ Cannot seed Employees: insufficient Companies found.");
+                        return;
+                }
                 LocalDateTime now = LocalDateTime.now();
 
                 Employee e1 = new Employee(null, "Rahul Sawant", "rahul.sawant@example.com", "+91-7798787874",

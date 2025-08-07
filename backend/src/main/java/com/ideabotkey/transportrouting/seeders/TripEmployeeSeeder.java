@@ -41,7 +41,7 @@ public class TripEmployeeSeeder implements CommandLineRunner {
         List<Trip> trips = tripRepository.findAll();
         List<Employee> employees = employeeRepository.findAll();
 
-        if (trips.isEmpty() || employees.isEmpty()) {
+        if (trips == null || trips.isEmpty() || employees == null || employees.isEmpty()) {
             System.out.println("⚠️ Cannot seed TripEmployees: Missing Trips or Employees.");
             return;
         }

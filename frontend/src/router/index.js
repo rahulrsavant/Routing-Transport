@@ -162,6 +162,12 @@ const router = createRouter({
                     props: (route) => ({ tripId: Number(route.params.tripId) })
                 },
                 {
+                    path: '/pages/trip/:tripId/map',
+                    name: 'tripmap',
+                    component: () => import('@/views/pages/TripMap.vue'),
+                    props: (route) => ({ tripId: Number(route.params.tripId) })
+                },
+                {
                     path: '/pages/employees',
                     name: 'employees',
                     component: () => import('@/views/pages/Employee.vue')

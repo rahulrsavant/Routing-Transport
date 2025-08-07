@@ -38,7 +38,7 @@ public class BookingSeeder implements CommandLineRunner {
         List<Trip> trips = tripRepository.findAll();
         List<Seat> seats = seatRepository.findAll();
 
-        if (trips.isEmpty() || seats.isEmpty()) {
+        if (trips == null || trips.size() < 12 || seats == null || seats.size() < 12) {
             System.out.println("⚠️ Cannot seed Bookings: No Trips or Seats found.");
             return;
         }

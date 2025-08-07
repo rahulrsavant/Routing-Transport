@@ -46,6 +46,14 @@ public class UserSeeder implements CommandLineRunner {
                         List<Driver> drivers = driverRepository.findAll();
                         List<VehicleOwner> owners = vehicleOwnerRepository.findAll();
 
+                        if (companies == null || companies.size() < 10 || roles == null || roles.size() < 4
+                                        || employees == null || employees.size() < 6 || drivers == null
+                                        || drivers.size() < 2 || owners == null || owners.size() < 2) {
+                                System.out.println(
+                                                "⚠️ Cannot seed Users: Missing Companies, Roles, Employees, Drivers, or Owners.");
+                                return;
+                        }
+
                         User u1 = new User();
                         u1.setUsername("rahul");
                         u1.setEmail("rahul.sawant@example.com");

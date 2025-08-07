@@ -48,7 +48,8 @@ public class TripSeeder implements CommandLineRunner {
         List<Vehicle> vehicles = vehicleRepository.findAll();
         List<Driver> drivers = driverRepository.findAll();
 
-        if (routes.isEmpty() || vehicles.isEmpty() || drivers.isEmpty()) {
+        if (routes == null || routes.size() < 10 || vehicles == null || vehicles.size() < 10
+                || drivers == null || drivers.size() < 50) {
             System.out.println("⚠️ Cannot seed Trips: Missing Routes, Vehicles, or Drivers.");
             return;
         }
